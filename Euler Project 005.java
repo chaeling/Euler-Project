@@ -8,24 +8,24 @@
 package number;
 
 public class SmallestMultiple {
-  public static int gcd(int m, int n){
-		if(n>m){
-			int temp = m;
-			m = n;
-			n = temp;
+	public static long gcd(long m, long l){
+		if(l>m){
+			long temp = m;
+			m = l;
+			l = temp;
 		}
-		int gcdNum = m;
+		long gcdNum = m;
 		while(m != 0){
-			m = gcdNum%n;
-			gcdNum = n;
-			n = m;
+			m = gcdNum%l;
+			gcdNum = l;
+			l = m;
 		}
 		return gcdNum;
 	}
-	private static int lcm(int m, int n){
-		return m*n/gcd(m,n);
+	private static long lcm(int m, long l){
+		return m*l/gcd(m,l);
 	}
-	static int multiple(int start, int end){
+	static long multiple(int start, int end){
 		if(start > end){
 			int temp = end;
 			end = start;
@@ -38,12 +38,12 @@ public class SmallestMultiple {
 		return multiple(start, end);
 	}
 	public static void main(String[] args) {
-		//System.out.println(multiple(11,19));
-		int i = 1;
+		System.out.println(multiple(11,20));
+		/*int i = 1;
 		boolean flag = false;
 		for(i = 1; !flag; i++)
 			if(i%11 == 0 && i%13 == 0 && i%14 == 0 && i%15 == 0 && i%16 == 0 && i%17 == 0 && i%18 == 0 && i%19 == 0)
 				flag = (i%11 == 0 && i%13 == 0 && i%14 == 0 && i%15 == 0 && i%16 == 0 && i%17 == 0 && i%18 == 0 && i%19 == 0);
-		System.out.println(i-1);		
+		System.out.println(i-1);*/		
 	}
 }
