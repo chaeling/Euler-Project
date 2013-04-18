@@ -1,3 +1,3 @@
 Euler-Project
 =============
-My Euler Project programs
+My Euler Project programs.
