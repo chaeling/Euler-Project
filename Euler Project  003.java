@@ -8,22 +8,18 @@ package number;
 
 public class LargestPrimeFactor {
   /*private static boolean isPrime(long n){
-		long n_sqrt = (long) java.lang.Math.sqrt(n);
-		for(long i = 2; i <= n_sqrt; i++)
-			if(n%i == 0)
-				return false;
-		return true;
-	}
-	public static long largestPrimeFactor(long n){
-		long i, output = 0;
-		if(isPrime(n))
-			System.out.println(n);
+		if(n < 2)
+			return false;
+		else if(n == 2)
+			return true;
+		else if(n%2 == 0)
+			return false;
 		else{
-			for(i = 2; i <= n/2; i++)
-				if(n%i == 0 && isPrime(i))
-					output = i;
+			for(long i = 2; i <= java.lang.Math.sqrt(n); i++)
+				if(n%i == 0)
+					return false;
+			return true;
 		}
-		return output;
 	}
 	*/
 	public static long largestPrimeFactor(long n){
