@@ -66,7 +66,8 @@ public class LargestProductInASeries {
 		/*int maxMultiple = 0;
 		int multiple;
 		for(int i = 0; i <= str.length()-5; i++){
-			multiple = (str.charAt(i)-'0')*(str.charAt(i+1)-'0')*(str.charAt(i+2)-'0')*(str.charAt(i+3)-'0')*(str.charAt(i+4)-'0');
+			multiple = (str.charAt(i)-'0')*(str.charAt(i+1)-'0')*
+			(str.charAt(i+2)-'0')*(str.charAt(i+3)-'0')*(str.charAt(i+4)-'0');
 			if(maxMultiple < multiple)
 				maxMultiple = multiple;
 		}
