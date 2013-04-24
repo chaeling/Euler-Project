@@ -15,36 +15,59 @@
  */
 package number;
 
-import java.util.LinkedList;
-
 public class LongestCollatzSequence {
-  public static int collatzNum(int n){
-		LinkedList<Long> list = new LinkedList<Long>();
-		long length = 0;
-		int output = 0;
-		for(int i = 10; i <= n; i++){
-			long j = (long) i;
-			while(j != 1){
-				if(j%2 == 0){
-					j /= 2;
-					list.add(j);
-				}else{
-					j = 3*j + 1;
-					list.add(j);
-				}
-			}
-			if(length < list.size()){
-				length = list.size();
-				output = i;
-			}
-			list.clear();
+/*	public static long collatzNum(long n){
+        long count = 0;
+        while(n != 1){
+            if(n%2 == 0)
+                n = n/2;
+            else 
+                n = 3*n + 1;
+            count++;
+        }
+        return count;
+    }
+    public static void main(String[] args) {
+    	long start = System.currentTimeMillis();
+        int max = 0;
+        long maxChainNum = 0;
+        for(int i = 10; i <= 1000000; i++){
+            if(collatzNum(i) > maxChainNum){
+            	max = i;
+            	maxChainNum = collatzNum(max);
+            }
+        }
+        long end = System.currentTimeMillis();
+        System.out.println(max);
+        System.out.println(maxChainNum);
+        System.out.println("Runnig time is " + (end - start) + " ms");
+    }*/
+	static final int[] cache = new int[1000000];
+	public static int collatzNum(long n){
+		if(n == 1)
+			return 1;
+		if(n < 1000000){
+			int count = cache[(int) n];
+			if(count > 0)
+				return count;
 		}
-		return output;
+		int next = 1 + ((n & 1) == 0 ? collatzNum(n >> 1) : collatzNum(3*n + 1));
+		if(n < cache.length)
+			cache[(int) n] = next;
+		return next;
 	}
 	public static void main(String[] args) {
-		long start = System.currentTimeMillis();
-		System.out.println(collatzNum(1000000));
-		long end = System.currentTimeMillis();
-		System.out.println("Running time is " + (end - start) + " ms");
+		long start = System.nanoTime();
+		int maxCount = 0, max = 0;
+		for(int i = 1; i < 1000000; i++){
+			int count = collatzNum(i);
+			if(count > maxCount){
+				maxCount = count; 
+				max = i;
+			}
+		}
+		long time = System.nanoTime() - start;
+		System.out.println("maxCount = " + maxCount + ", value = " + max);
+		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
 	}
 }
