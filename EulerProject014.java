@@ -42,7 +42,7 @@ public class LongestCollatzSequence {
         System.out.println(maxChainNum);
         System.out.println("Runnig time is " + (end - start) + " ms");
     }*/
-	static final int[] cache = new int[1000000];
+	static final short[] cache = new short[1000000];
 	public static int collatzNum(long n){
 		if(n == 1)
 			return 1;
@@ -51,9 +51,9 @@ public class LongestCollatzSequence {
 			if(count > 0)
 				return count;
 		}
-		int next = 1 + ((n & 1) == 0 ? collatzNum(n >> 1) : collatzNum(3*n + 1));
+		int next = (n & 1) == 0 ? 1 + collatzNum(n >> 1) : 2 + collatzNum((3*n + 1) >> 1);
 		if(n < cache.length)
-			cache[(int) n] = next;
+			cache[(int) n] = (short) next;
 		return next;
 	}
 	public static void main(String[] args) {
