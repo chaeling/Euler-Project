@@ -17,9 +17,11 @@ package number;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class CountingSundays {
-  public static int calculateWeek(int year, int month, int date){
+	public static int calculateWeek(int year, int month, int date){
+		// Zeller's congruence
 		if(month <= 2){
 			month += 12;
 			year--;
@@ -70,4 +72,21 @@ public class CountingSundays {
 		long time = System.nanoTime() - start;
 		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
 	}*/
+/*	public static void main(String[] args) {
+		long start = System.nanoTime();
+        GregorianCalendar gc = new GregorianCalendar(1, Calendar.JANUARY, 1900);
+        int count = 0;
+        for (int i = 1901; i < 2001; i++) {
+            gc.set(GregorianCalendar.YEAR, i);
+            for (int j = 0; j < 12; j++) {
+                gc.set(GregorianCalendar.MONTH, j);
+                if (gc.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SUNDAY) {
+                    count++;
+                }
+            }
+        }
+        System.out.println(count);
+        long time = System.nanoTime() - start;
+		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
+    }*/
 }
