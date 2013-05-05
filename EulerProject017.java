@@ -15,9 +15,9 @@ package number;
 
 public class NumberLetterCounts {
   static int[] units = {3, 3, 5, 4, 4, 3, 5, 5, 4};          // 1, 2, 3, 4, 5, 6, 7, 8, 9
-	static int[] teens = {3, 6, 6, 8, 8, 7, 7, 9, 8, 8};      // 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
-	static int[] tys = {6, 6, 5, 5, 5, 7, 6, 6};              // 20, 30, 40, 50, 60, 70, 80, 90
-	                                                           // length(hundred) = 7; length(thousand) = 8; length(and) = 3;
+	static int[] teens = {3, 6, 6, 8, 8, 7, 7, 9, 8, 8};     // 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+	static int[] tys = {6, 6, 5, 5, 5, 7, 6, 6};             // 20, 30, 40, 50, 60, 70, 80, 90
+	                                                         // length(hundred) = 7; length(thousand) = 8; length(and) = 3;
 	public static int letterCounts(int n){
 		// This method is just for number between 1~1000!!!
 		int count = 0;
