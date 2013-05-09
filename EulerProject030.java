@@ -36,8 +36,8 @@ public class DigitFifthPowers {
 		long start = System.nanoTime();
 		int sum = 0;
 		for(int i = 2; i < 1000000; i++)       // Numbers containing more than six digits is larger than 
-			if(isSumOfPowerDigits(i))          // the sum of fifth powers of their digits even if all 
-				sum += i;                      // digits of a number are 9 (9^5 <= (10^n)/n, get n = 6)
+			if(isSumOfPowerDigits(i))      // the sum of fifth powers of their digits even if all 
+				sum += i;              // digits of a number are 9 (9^5 <= (10^n)/n, get n = 6)
 		System.out.println(sum);
 		long time = System.nanoTime() - start;
 		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
