@@ -14,7 +14,7 @@
 package number;
 
 public class DigitFifthPowers {
-/*  public static boolean isSumOfPowerDigits(int n){
+/*	public static boolean isSumOfPowerDigits(int n){
 		String temp = n + "";
 		int sum = 0;
 		for(int i = 0; i < temp.length(); i++)
@@ -35,8 +35,8 @@ public class DigitFifthPowers {
 	public static void main(String[] args) {
 		long start = System.nanoTime();
 		int sum = 0;
-		for(int i = 2; i < 1000000; i++)
-			if(isSumOfPowerDigits(i))
+		for(int i = 2; i < 1000000; i++)       // Numbers containing more than six digits is larger than the sum of fifth powers
+			if(isSumOfPowerDigits(i))          // of their digits even if all digits of a number are 9 (9^5 <= (10^n)/n, get n = 6)
 				sum += i;
 		System.out.println(sum);
 		long time = System.nanoTime() - start;
