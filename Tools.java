@@ -15,4 +15,20 @@ public class Tools {
 		}
 		return false;
 	}
+	
+	public static boolean isPalindrome(String s){
+		return s.equals(new StringBuilder(s).reverse().toString());
+	}
+	
+	public static boolean isPalindrome(int n){
+		int temp = n, digit, rev = 0;
+		while(temp != 0){
+			digit = temp % 10;
+			rev = rev * 10 + digit;
+			temp /= 10;
+		}
+		if(rev == n)
+			return true;
+		return false;
+	}
 }
