@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class LargestPalindromeNumber {
+	/* The first palindrome function is faster than the second. */
   /*public static boolean isPalindrome(int n){
 		int temp = n, digit, rev = 0;
 		while(temp != 0){
