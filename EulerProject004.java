@@ -12,6 +12,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class LargestPalindromeNumber {
+  /*public static boolean isPalindrome(int n){
+		int temp = n, digit, rev = 0;
+		while(temp != 0){
+			digit = temp % 10;
+			rev = rev * 10 + digit;
+			temp /= 10;
+		}
+		if(rev == n)
+			return true;
+		return false;
+	}*/
   public static boolean isPalindrome(int n){
 		String a = n + "";
 		String b = new StringBuilder(a).reverse().toString();
