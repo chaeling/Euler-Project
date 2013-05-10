@@ -27,8 +27,6 @@ public class Tools {
 			rev = rev * 10 + digit;
 			temp /= 10;
 		}
-		if(rev == n)
-			return true;
-		return false;
+		return rev == n;
 	}
 }
