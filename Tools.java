@@ -32,12 +32,16 @@ public class Tools {
 	
 	public static int primesFactorNum(int n){
 		int count = 0;
-		for(int i = 2; n != 1; i++)
-			if(n%i == 0){
-				count++;
-				while(n%i == 0)
+		int end = (int) Math.sqrt(n);
+		for(int i = 2; i <= end; i++)
+			if(n % i == 0){
+				while(n % i == 0)
 					n /= i;
+				end = (int) Math.sqrt(n);
+				count++;
 			}
+		if(n > 1)
+			count++;
 		return count;
 	}
 }
