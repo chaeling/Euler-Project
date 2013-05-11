@@ -29,4 +29,15 @@ public class Tools {
 		}
 		return rev == n;
 	}
+	
+	public static int primesFactorNum(int n){
+		int count = 0;
+		for(int i = 2; n != 1; i++)
+			if(n%i == 0){
+				count++;
+				while(n%i == 0)
+					n /= i;
+			}
+		return count;
+	}
 }
