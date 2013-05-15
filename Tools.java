@@ -61,4 +61,21 @@ public class Tools {
 				permutations(list, prefix + s.charAt(i), s.substring(0, i) + s.substring(i + 1, len));
 		}
 	}
+	
+	public static double permutation(int m, int n){
+		if(m > n)
+			return 0;
+		else if(m == 1)
+			return n;
+		else
+			return n*permutation(m - 1, n - 1);
+	}
+	public static long combination(int m, int n){
+		double a = permutation(m, n);
+		double b = permutation(m, m);
+		if(m > n)
+			return 0;
+		else 
+			return (long) (a/b);
+	}
 }
