@@ -1,5 +1,7 @@
 package number;
 
+import java.util.ArrayList;
+
 public class Tools {
   public static boolean isPrime(int n){
 		if(n < 10){
@@ -43,5 +45,20 @@ public class Tools {
 		if(n > 1)
 			count++;
 		return count;
+	}
+	
+	private static ArrayList<String> permutations(String s){
+		ArrayList<String> list = new ArrayList<String>();
+		permutations(list, "", s);
+		return list;
+	}
+	private static void permutations(ArrayList<String> list, String prefix, String s) {
+		int len = s.length();
+		if(len == 0)
+			list.add(prefix);
+		else{
+			for(int i = 0; i < len; i++)
+				permutations(list, prefix + s.charAt(i), s.substring(0, i) + s.substring(i + 1, len));
+		}
 	}
 }
