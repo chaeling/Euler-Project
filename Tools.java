@@ -70,6 +70,7 @@ public class Tools {
 		else
 			return n*permutation(m - 1, n - 1);
 	}
+	
 	public static long combination(int m, int n){
 		double a = permutation(m, n);
 		double b = permutation(m, m);
