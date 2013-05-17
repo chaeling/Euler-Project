@@ -63,13 +63,6 @@ public class Tools {
 		}
 	}
 	
-	private static BigInteger combination(int m, int n){
-		if(m > n)
-			throw new IllegalArgumentException();
-		BigInteger a = factorial(m, n);
-		BigInteger b = factorial(m, m);
-		return a.divide(b);
-	}
 	
 	private static BigInteger factorial(int n){
 		BigInteger value = BigInteger.ONE;
@@ -84,5 +77,11 @@ public class Tools {
 		for(int i = n - m + 1; i <= n; i++)
 			value = value.multiply(BigInteger.valueOf(i));
 		return value;
+	}
+	
+	private static BigInteger combination(int m, int n){
+		if(m > n)
+			throw new IllegalArgumentException();
+		return factorial(m, n).divide(factorial(m, m));
 	}
 }
