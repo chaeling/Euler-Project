@@ -79,4 +79,19 @@ public class Tools {
 		else 
 			return (long) (a/b);
 	}
+	
+	private static BigInteger factorial(int n){
+		BigInteger value = BigInteger.ONE;
+		for(int i = 2; i <= n; i++)
+			value = value.multiply(BigInteger.valueOf(i));
+		return value;
+	}
+	private static BigInteger factorial(int m, int n){
+		if(m > n)
+			throw new IllegalArgumentException();
+		BigInteger value = BigInteger.ONE;
+		for(int i = n - m + 1; i <= n; i++)
+			value = value.multiply(BigInteger.valueOf(i));
+		return value;
+	}
 }
