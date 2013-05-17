@@ -63,15 +63,6 @@ public class Tools {
 		}
 	}
 	
-	public static double permutation(int m, int n){
-		if(m > n)
-			return 0;
-		else if(m == 1)
-			return n;
-		else
-			return n*permutation(m - 1, n - 1);
-	}
-	
 	private static BigInteger combination(int m, int n){
 		if(m > n)
 			throw new IllegalArgumentException();
