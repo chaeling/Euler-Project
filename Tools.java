@@ -1,6 +1,7 @@
 package number;
 
 import java.util.ArrayList;
+import java.math.BigInteger;
 
 public class Tools {
   public static boolean isPrime(int n){
@@ -71,13 +72,12 @@ public class Tools {
 			return n*permutation(m - 1, n - 1);
 	}
 	
-	public static long combination(int m, int n){
-		double a = permutation(m, n);
-		double b = permutation(m, m);
+	private static BigInteger combination(int m, int n){
 		if(m > n)
-			return 0;
-		else 
-			return (long) (a/b);
+			throw new IllegalArgumentException();
+		BigInteger a = factorial(m, n);
+		BigInteger b = factorial(m, m);
+		return a.divide(b);
 	}
 	
 	private static BigInteger factorial(int n){
