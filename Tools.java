@@ -23,6 +23,10 @@ public class Tools {
 		return s.equals(new StringBuilder(s).reverse().toString());
 	}
 	
+	private static boolean isPalindrome(BigInteger n){
+		return n.toString().equals(new StringBuilder(n.toString()).reverse().toString());
+	}
+	
 	public static boolean isPalindrome(int n){
 		int temp = n, digit, rev = 0;
 		while(temp != 0){
