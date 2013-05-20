@@ -19,6 +19,19 @@ public class Tools {
 		return false;
 	}
 	
+	private static int gcd(int m, int n){
+		while(n != 0){
+			int p = m % n;
+			m = n;
+			n = p;
+		}
+		return m;
+	}
+	
+	private static long lcm(int m, int n){
+		return ((long)m*n)/gcd(m,n);
+	}
+	
 	public static boolean isPalindrome(String s){
 		return s.equals(new StringBuilder(s).reverse().toString());
 	}
