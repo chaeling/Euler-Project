@@ -45,12 +45,18 @@ public class TotientMaximum {
 	private static float phiRatio(int n){
 		return (float)n/totient(n);
 	}
+	
 	public static void main(String[] args) {
 		long start = System.nanoTime();
-		System.out.println(phiRatio(6));
+		int max = 1;
+		for(int i = 1; i <= 1000000; i++)
+			if(phiRatio(max) < phiRatio(i))
+				max = i;
+		System.out.println(max);
 		long time = System.nanoTime() - start;
 		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
 	}
+	
 	// The solution below is much more efficient, but……
 /*	public static void main(String[] args) {
 		long start = System.nanoTime();
