@@ -51,7 +51,7 @@ public class TotientMaximum {
 		long time = System.nanoTime() - start;
 		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
 	}
-	
+	// The solution below is much more efficient, but……
 /*	public static void main(String[] args) {
 		long start = System.nanoTime();
 		int max = 1;
