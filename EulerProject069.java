@@ -52,21 +52,14 @@ public class TotientMaximum {
 		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
 	}
 	
-	// The method below is much more efficient, but ……
-	/*public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		long start = System.nanoTime();
-		int primes[] = new int[500];
-		int count = 0;
-		for(int i = 2; i < 1000; i++)
-			if(isPrime(i)){
-				primes[count] = i;
-				count++;
-			}
 		int max = 1;
-		int j = 0;
-		while(max * primes[j]< 1000000){
-			max *= primes[j];
-			j++;
+		for(int i = 2; i < 18; i++){
+			if(isPrime(i)){
+				if(max * i < 1000000)
+					max *= i;
+			}
 		}
 		System.out.println(max);
 		long time = System.nanoTime() - start;
