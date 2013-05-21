@@ -102,6 +102,8 @@ public class Tools {
 		return factorial(m, n).divide(factorial(m, m));
 	}
 	
+	// Euler's totient function
+	// http://en.wikipedia.org/wiki/Totient
 	private static int totient(int n){
 		int count = 1;
 		for(int i = 2, end = (int) Math.sqrt(n); i <= end; i++){
