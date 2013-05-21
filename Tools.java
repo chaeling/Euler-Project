@@ -101,4 +101,22 @@ public class Tools {
 			throw new IllegalArgumentException();
 		return factorial(m, n).divide(factorial(m, m));
 	}
+	
+	private static int totient(int n){
+		int count = 1;
+		for(int i = 2, end = (int) Math.sqrt(n); i <= end; i++){
+			if(n % i == 0){
+				count *= i - 1;
+				n /= i;
+				while(n % i == 0){
+					count *= i;
+					n /= i;
+				}
+				end = (int) Math.sqrt(n); // This line is not necessary, but it can accelerate the speed.
+			}
+		}
+		if(n != 1)
+			count *= n - 1;
+		return count;
+	}
 }
