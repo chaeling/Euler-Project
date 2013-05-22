@@ -13,7 +13,7 @@
 package number;
 
 public class TruncatablePrimes {
-  private static boolean isTruPrime(int n){
+	private static boolean isTruPrime(int n){
 		int len = Integer.toString(n).length();
 		int temp = n;
 		while(n > 0){
@@ -22,7 +22,6 @@ public class TruncatablePrimes {
 			else
 				n /= 10;
 		}
-		
 		while(temp > 0){
 			if(!isPrime(temp))
 				return false;
@@ -48,11 +47,11 @@ public class TruncatablePrimes {
 	}
 	public static void main(String[] args) {
 		long start = System.nanoTime();
-		int sum = 0;
-		for(int j = 23; j < 1000000; j++)
+		int sum = 0, count = 0;
+		for(int j = 23; count < 11; j++)
 			if(isTruPrime(j)){
-				System.out.println(j);
 				sum += j;
+				count++;
 			}
 		System.out.println("Sum = " + sum);
 		long time = System.nanoTime() - start; 
