@@ -25,13 +25,6 @@ public class ReversibleNumbers {
 				return false;
 		}
 		return true;
-		/*while(i < len){
-			digit = s.charAt(i) - '0' + s.charAt(len - 1 - i) - '0' + digit/10;
-			if(digit % 2 == 0)
-				return false;
-			i++;
-		}
-		return true;*/
 	}
 	public static void main(String[] args) {
 		long start = System.nanoTime();
