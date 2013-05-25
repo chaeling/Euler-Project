@@ -13,7 +13,10 @@
 package number;
 
 public class ReversibleNumbers {
-  private static boolean isReversible(long n){
+	private static boolean isReversible(long n){
+		// if n has one or five or nine digits, it must be a non-reversible number.
+		if(n < 10 || n >= 10000 && n <= 100000 || n >= 100000000 && n < 1000000000) 
+			return false;
 		if(n % 10 == 0)
 			return false;
 		int digit = 1;
