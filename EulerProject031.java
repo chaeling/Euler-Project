@@ -13,9 +13,24 @@
 package number;
 
 public class CoinSums {
-  public static void main(String[] args) {
+	
+//	final static int coins[] = {200, 100, 50, 20, 10, 5, 2, 1};
+//	public static int findposs(int money, int maxcoin){
+//		int sum = 0;
+//		if(maxcoin == 7)
+//			return 1;
+//		for(int i = maxcoin; i < 8; i++){
+//			if(money - coins[i] == 0)
+//				sum += 1;
+//			if(money - coins[i] > 0) 
+//				sum += findposs(money - coins[i], i);
+//		}
+//		return sum;
+//	}
+//	
+	public static void main(String[] args) {
 		long start = System.nanoTime();
-		int count = 0;
+	/*	int count = 0;
 		for(int i = 0; i <= 1; i++)
 			for(int j = 0; j <= 2; j++)
 				for(int k = 0; k <= 4; k++)
@@ -26,7 +41,20 @@ public class CoinSums {
 									for(int r = 0; r <= 200; r++)
 										if(200 * i + 100 * j + 50 * k + 20 * m + 10 * n + 5 * p + 2 * q + r == 200)
 											count++;
-		System.out.println(count);
+		System.out.println(count);*/
+		
+		final int TOTAL = 200;
+		int[] coins = {1, 2, 5, 10, 20, 50, 100, 200};
+	    int[] ways = new int[TOTAL + 1];
+	    ways[0] = 1;
+
+	    for(int coin: coins)
+	    	for(int j = coin; j <= TOTAL; j++)
+			  	ways[j] += ways[j - coin];
+	    System.out.println("Result: " + ways[TOTAL]);
+		
+		
+		
 		long time = System.nanoTime() - start; 
 		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
 	}
