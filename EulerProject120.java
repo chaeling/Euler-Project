@@ -12,14 +12,14 @@
 package number;
 
 public class SquareRemainders {
-/*  public static int rMax(int a){
+/*	public static int rMax(int a){
 		// (a−1)^n + (a+1)^n = 2 * (0Cn*a^n + 2Cn*a^(n-2) + ... + 2kCn*a^(n-2k))
 		//if n is odd, the result is (2*1) % a^2, it's 2; and if n is even, the result will be (2n*a) % a^2, 
 		// so let n = (a - 1)/2, we get the max result. (if n is beyond a, it will get the same max result).
 		if(a < 3)
 			return 2;
 		else
-			return (2 * ((a - 1)/2) * a) % (a * a);
+			return (2 * ((a - 1)/2) * a) % (a * a); // this method will easily exceed the integer range.
 	}*/
 	
 	public static int rMax(int a){
@@ -31,7 +31,7 @@ public class SquareRemainders {
 	public static void main(String[] args) {
 		long start = System.nanoTime();
 		int sum = 0;
-		for(int i = 3; i <= 1000; i++)
+		for(int i = 3; i <= 10000; i++)
 			sum += rMax(i);
 		System.out.println(sum);
 		long time = System.nanoTime() - start;
