@@ -19,7 +19,7 @@ public class SquareRemainders {
 		if(a < 3)
 			return 2;
 		else
-			return (2 * ((a - 1)/2) * a) % (a * a); // this method will easily exceed the integer range.
+			return (2 * ((a - 1)/2) * a) % (a * a); 
 	}*/
 	
 	public static int rMax(int a){
