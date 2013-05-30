@@ -10,22 +10,25 @@ package number;
 import java.util.Arrays;
 
 public class ConsecutivePositiveDivisors {
-  public static void main(String[] args) {
-		long start = System.nanoTime();
-		final int LIMIT = 10000000;
-		int[] array = new int[LIMIT + 1];
+	public static int[] divisors(int n){
+		int[] array = new int[n + 1];
 		Arrays.fill(array, 2);
-		for(int i = 2; i <= Math.sqrt(LIMIT); i++) {
+		for(int i = 2; i <= Math.sqrt(n); i++) {
 			int j = i * i;
 			array[j]--;
-			while(j < LIMIT) {
+			while(j < n) {
 				array[j] += 2;
 				j += i;
 			}
 		}
+		return array;
+	}
+	public static void main(String[] args) {
+		long start = System.nanoTime();
 		int count = 0;
-		for(int i = 2; i < LIMIT; i++)
-			if(array[i] == array[i + 1])
+		int divs[] = divisors(10000000);
+		for(int i = 2; i < 10000000; i++)
+			if(divs[i] == divs[i + 1])
 				count++;
 		System.out.println(count);
 		long time = System.nanoTime() - start;
