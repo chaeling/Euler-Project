@@ -21,7 +21,7 @@ public class Tools {
 		return true;
 	}
 	
-	private static boolean[] isPrime(int n){// Sieve of Eratosthenes http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+	private static boolean[] isPrime(int n){//Sieve of Eratosthenes: http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 		if(n < 0)
 			throw new IllegalArgumentException("Negtive number");
 		boolean[] prime = new boolean[n + 1];
