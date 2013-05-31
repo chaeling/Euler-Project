@@ -11,7 +11,7 @@
 package number;
 
 public class PrimeGeneratingIntegers {
-  public static boolean isPrime(int n) {
+/*  public static boolean isPrime(int n) {
 		if(n < 0)
 			throw new IllegalArgumentException("Negtive number");
 		if(n == 0 || n == 1)
@@ -33,11 +33,37 @@ public class PrimeGeneratingIntegers {
 				if(!isPrime(i + n/i))
 					return false;
 		return true;
+	}*/
+	
+	private static boolean[] isPrime(int n) {
+		if(n < 0)
+			throw new IllegalArgumentException("Negtive number");
+		boolean[] prime = new boolean[n + 1];
+		prime[0] = prime[1] = false;
+		for(int i = 2; i <= n; i++)
+			prime[i] = true;
+		for(int i = 2; i * i <= n; i++)
+			if(prime[i]) {
+				for(int j = i * i; j <= n; j += i)
+					prime[j] = false;
+			}
+		return prime;
+	}
+	
+	static int N = 100000000;
+	static boolean[] prime = isPrime(N + 1);
+	
+	public static boolean isPrimeGenDiv(int n) {
+		for(int i = 1; i * i <= n; i++)
+			if(n % i == 0)
+				if(!prime[i + n/i])
+					return false;
+		return true;
 	}
 	public static void main(String[] args) {
 		long start = System.nanoTime();	
-		long sum = 0;
-		for(int i = 1; i <= 100000000; i++)
+		long sum = 1;
+		for(int i = 2; i <= 100000000; i += 2)
 			if(isPrimeGenDiv(i))
 				sum += i;
 		System.out.println(sum);
