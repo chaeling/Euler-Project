@@ -21,6 +21,21 @@ public class Tools {
 		return true;
 	}
 	
+	private static boolean[] isPrime(int n){// Sieve of Eratosthenes http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+		if(n < 0)
+			throw new IllegalArgumentException("Negtive number");
+		boolean[] prime = new boolean[n + 1];
+		prime[0] = prime[1] = false;
+		for(int i = 2; i <= n; i++)
+			prime[i] = true;
+		for(int i = 2; i * i <= n; i++)
+			if(prime[i]) {
+				for(int j = i * i; j <= n; j += i)
+					prime[j] = false;
+			}
+		return prime;
+	}
+	
 	private static int gcd(int m, int n){
 		while(n != 0){
 			int p = m % n;
