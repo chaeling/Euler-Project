@@ -4,19 +4,21 @@ import java.util.ArrayList;
 import java.math.BigInteger;
 
 public class Tools {
-  public static boolean isPrime(int n){
-		if(n < 10){
-			if(n == 2 || n == 3 || n == 5 || n == 7)
-				return true;
-		}else{
-			if(n%2 != 0){
-				for(int i = 3; i <= Math.sqrt(n); i += 2)
-					if(n%i == 0)
-						return false;
-				return true;
-			}
-		}
-		return false;
+	public static boolean isPrime(int n) {
+		if(n < 0)
+			throw new IllegalArgumentException("Negtive number");
+		if(n == 0 || n == 1)
+			return false;
+		if(n % 2 == 0)
+			return n == 2;
+		if(n % 3 == 0)
+			return n ==3;
+		if(n % 5 == 0)
+			return n == 5;
+		for(int i = 7; i * i <= n; i +=2)
+			if(n % i == 0)
+				return false;
+		return true;
 	}
 	
 	private static int gcd(int m, int n){
