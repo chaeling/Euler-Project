@@ -121,4 +121,18 @@ public class Tools {
 			count *= n - 1;
 		return count;
 	}
+	
+	public static int[] divisorsNum(int n){ // save the divisors number of each number less or equal to n in a array.
+		int[] array = new int[n + 1];
+		Arrays.fill(array, 2);
+		for(int i = 2; i <= Math.sqrt(n); i++) {
+			int j = i * i;
+			array[j]--;
+			while(j < n) {
+				array[j] += 2;
+				j += i;
+			}
+		}
+		return array;
+	}
 }
