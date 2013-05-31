@@ -10,7 +10,7 @@ package number;
 import java.util.Arrays;
 
 public class ConsecutivePositiveDivisors {
-	public static int[] divisors(int n){
+	public static int[] divisorsNum(int n){
 		int[] array = new int[n + 1];
 		Arrays.fill(array, 2);
 		for(int i = 2; i <= Math.sqrt(n); i++) {
@@ -26,7 +26,7 @@ public class ConsecutivePositiveDivisors {
 	public static void main(String[] args) {
 		long start = System.nanoTime();
 		int count = 0;
-		int divs[] = divisors(10000000);
+		int divs[] = divisorsNum(10000000);
 		for(int i = 2; i < 10000000; i++)
 			if(divs[i] == divs[i + 1])
 				count++;
