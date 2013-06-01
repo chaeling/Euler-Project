@@ -21,21 +21,21 @@
 package number;
 
 public class BouncyNumbers {
-  private static boolean isIncreasingNum(int n){
+  private static boolean isIncreasingNum(int n) {
 		for(; n != 0; n /= 10){
 			if(n % 10 < n/10 % 10)
 				return false;
 		}
 		return true;
 	}
-	private static boolean isDecreasingNum(int n){
+	private static boolean isDecreasingNum(int n) {
 		for(; n > 10; n /= 10){
 			if(n % 10 > n/10 % 10)
 				return false;
 		}
 		return true;
 	}
-	private static boolean isBouncyNum(int n){
+	private static boolean isBouncyNum(int n) {
 		if(n < 100)
 			return false;
 		return !isIncreasingNum(n) && !isDecreasingNum(n);
