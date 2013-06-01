@@ -6,18 +6,14 @@ import java.math.BigInteger;
 public class Tools {
 	public static boolean isPrime(int n) {
 		if(n < 0)
-			throw new IllegalArgumentException("Negtive number");
+			throw new IllegalArgumentException("Negative number");
 		if(n == 0 || n == 1)
 			return false;
-		if(n % 2 == 0)
-			return n == 2;
-		if(n % 3 == 0)
-			return n ==3;
-		if(n % 5 == 0)
-			return n == 5;
-		for(int i = 7; i * i <= n; i +=2)
-			if(n % i == 0)
-				return false;
+		if(n % 2 == 0 || n % 3 == 0 || n % 5 == 0)
+			return n == 2 || n == 3 || n == 5;
+		for(int i = 7; i * i <= n; i += 2)
+				if(n % i == 0)
+					return false;
 		return true;
 	}
 	
