@@ -19,7 +19,7 @@ public class Tools {
 	
 	private static boolean[] isPrime(int n){//Sieve of Eratosthenes: http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 		if(n < 0)
-			throw new IllegalArgumentException("Negtive number");
+			throw new IllegalArgumentException("Negative number");
 		boolean[] prime = new boolean[n + 1];
 		prime[0] = prime[1] = false;
 		for(int i = 2; i <= n; i++)
