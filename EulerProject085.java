@@ -31,7 +31,7 @@ public class CountingRectangles {
 				}
 			}
 		}
-		System.out.println("i = " + m + ", j = " + n + ", area = " + m * n + ", rectanglesNum = " + rectanglesNum(m, n));
+		System.out.println("m = " + m + ", n = " + n + ", area = " + m * n + ", rectanglesNum = " + rectanglesNum(m, n));
 		long time = System.nanoTime() - start;
 		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
 	}
