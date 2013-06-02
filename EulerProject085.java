@@ -13,7 +13,7 @@
 package number;
 
 public class CountingRectangles {
-	public static int rectanglesNum(int m, int n){
+	public static int rectanglesNum(int m, int n) {
 		return m * (m + 1) * n * (n + 1) / 4;
 	}
 	public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class CountingRectangles {
 		int standard = 2000000;
 		int min = standard;
 		int m = 0, n = 0;
-		for(int i = 1; i <= 53; i++){
+		for(int i = 1; i <= 53; i++) {
 			for(int j = i; j <= 2000; j++) {
 				if(min > Math.abs(rectanglesNum(i, j) - standard)) {
 					m = i;
