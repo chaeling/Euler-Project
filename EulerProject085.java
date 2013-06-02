@@ -4,7 +4,7 @@
  * 
  * By counting carefully it can be seen that a rectangular grid measuring 3 by 2 contains eighteen rectangles:
 
-  http://projecteuler.net/problem=85
+	http://projecteuler.net/problem=85
 	
  * Although there exists no rectangular grid that contains exactly two million rectangles, find the area of the 
  * grid with the nearest solution.
@@ -13,7 +13,7 @@
 package number;
 
 public class CountingRectangles {
-	public static int rectanglesNum(int m, int n) {
+	public static int rectanglesNum(int m, int n){
 		return m * (m + 1) * n * (n + 1) / 4;
 	}
 	public static void main(String[] args) {
@@ -22,8 +22,8 @@ public class CountingRectangles {
 		int standard = 2000000;
 		int min = standard;
 		int m = 0, n = 0;
-		for(int i = 1; i <= 53; i++) {
-			for(int j = i; j <= 2000; j++) {
+		for(int i = 1; i <= Math.sqrt(standard); i++) { // we can use i <= 52; j <= 100;
+			for(int j = i; j <= Math.sqrt(standard); j++) {
 				if(min > Math.abs(rectanglesNum(i, j) - standard)) {
 					m = i;
 					n = j;
