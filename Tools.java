@@ -32,6 +32,34 @@ public class Tools {
 		return prime;
 	}
 	
+	private static long[] primeArray(int n){
+		if(n < 0)
+			throw new IllegalArgumentException("Negative number");
+		boolean[] prime = new boolean[n + 1];
+		prime[0] = prime[1] = false;
+		for(int i = 2; i <= n; i++)
+			prime[i] = true;
+		for(int i = 2; i * i <= n; i++)
+			if(prime[i]) {
+				for(int j = i * i; j <= n; j += i) 
+					prime[j] = false;
+			}
+		int count = 0;
+		
+		for(int i = 0; i <= n; i++)
+			if(prime[i])
+				count++;
+		long[] array = new long[count];
+		int j = 0;
+		for(int i = 0; i <= n; i++) {
+			if(prime[i]) {
+				array[j] = i;
+				j++;
+			}
+		}
+		return array;
+	}
+	
 	private static int gcd(int m, int n){
 		while(n != 0){
 			int p = m % n;
