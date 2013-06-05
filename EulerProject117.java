@@ -18,6 +18,7 @@ public class RedGreenBlueTilesII {
 		long[] sum = new long[n + 1];
 		sum[0] = 1;
 		for(int i = 1; i <= n; i++) {
+			sum[i] = sum[i - 1];
 			if(i == 2)
 				sum[i] += sum[i - 2];
 			if(i == 3)
