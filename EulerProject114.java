@@ -22,7 +22,8 @@ public class CountingBlockCombinationsI {
 		for(int i = 3; i <= n; i++) {
 			sum[i] += sum[i - 1] + 1;// situation of leftmost is a black block or just a red block;
 			for(int j = 3; j < i; j++) 
-				sum[i] += sum[i - j - 1];//situation of leftmost is a  red block with length of j, which one is followed by a black block.
+				sum[i] += sum[i - j - 1];//situation of leftmost is a  red block with length of j, 
+				                         //which one is followed by a black block.
 		}
 		return sum[n];
 	}
