@@ -60,6 +60,13 @@ public class Tools {
 		return array;
 	}
 	
+	public static int gcd(int a, int b) {
+		if(b == 0)
+			return a;
+		else
+			return gcd(b, a % b);
+	}
+	
 	private static int gcd(int m, int n){
 		while(n != 0){
 			int p = m % n;
