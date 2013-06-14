@@ -41,7 +41,7 @@ public class PandigitalProducts {
 			int c = Integer.valueOf(list.get(i).substring(5));
 			if(a * b == c) {
 				if(array.contains(c))
-					System.out.println(a + " x " + b + " = " + c + "    Duplicate product, don't add to sum!");
+					System.out.println(a + " x " + b + " = " + c + "  Duplicate product, don't add to sum!");
 				else {
 					array.add(c);
 					System.out.println(a + " x " + b + " = " + c);
@@ -54,7 +54,7 @@ public class PandigitalProducts {
 			int c = Integer.valueOf(list.get(i).substring(5));
 			if(a * b == c) {
 				if(array.contains(c))
-					System.out.println(a + " x " + b + " = " + c + "    Duplicate product, don't add to sum!");
+					System.out.println(a + " x " + b + " = " + c + "  Duplicate product, don't add to sum!");
 				else {
 					array.add(c);
 					System.out.println(a + " x " + b + " = " + c);
