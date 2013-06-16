@@ -21,14 +21,11 @@ public class Tools {
 		if(n < 0)
 			throw new IllegalArgumentException("Negative number");
 		boolean[] prime = new boolean[n + 1];
+		Arrays.fill(prime, true);
 		prime[0] = prime[1] = false;
-		for(int i = 2; i <= n; i++)
-			prime[i] = true;
 		for(int i = 2; i * i <= n; i++)
-			if(prime[i]) {
-				for(int j = i * i; j <= n; j += i)
-					prime[j] = false;
-			}
+			for(int j = i; j * i <= n; j++)
+				prime[i * j] = false;
 		return prime;
 	}
 	
