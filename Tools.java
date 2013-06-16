@@ -183,4 +183,33 @@ public class Tools {
 		}
 		return array;
 	}
+	
+	public static boolean isPandigital(int n) {
+		int len = Integer.toString(n).length();
+		String pandital = null;
+		switch (len) {
+			case 1 : pandital = "1";
+				break;
+			case 2 : pandital = "12";
+				break;
+			case 3 : pandital = "123";
+				break;
+			case 4 : pandital = "1234";
+				break;
+			case 5 : pandital = "12345";
+				break;
+			case 6 : pandital = "123456";
+				break;
+			case 7 : pandital = "1234567";
+				break;
+			case 8 : pandital = "12345678";
+				break;
+			case 9 : pandital = "123456789";
+				break;
+			default : break;
+		}
+		char[] temp = Integer.toString(n).toCharArray();
+		Arrays.sort(temp);
+		return new String(temp).equals(pandital);
+	}
 }
