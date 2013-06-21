@@ -126,11 +126,12 @@ public class Tools {
 	}
 	
 	
-	private static BigInteger factorial(int n){
-		BigInteger value = BigInteger.ONE;
-		for(int i = 2; i <= n; i++)
-			value = value.multiply(BigInteger.valueOf(i));
-		return value;
+	public static BigInteger factorial(int n) {
+//		return n == 1 ? BigInteger.ONE : BigInteger.valueOf(n).multiply(factorial(n - 1));
+		if(n == 1)
+			return BigInteger.ONE;
+		else
+			return BigInteger.valueOf(n).multiply(factorial(n - 1));
 	}
 	private static BigInteger factorial(int m, int n){
 		if(m > n)
