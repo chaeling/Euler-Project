@@ -127,8 +127,10 @@ public class Tools {
 	
 	
 	public static BigInteger factorial(int n) {
-//		return n == 1 ? BigInteger.ONE : BigInteger.valueOf(n).multiply(factorial(n - 1));
-		if(n == 1)
+		if(n < 0)
+			throw new IllegalArgumentException("negative number");
+//		return n == 1 || n == 0 ? BigInteger.ONE : BigInteger.valueOf(n).multiply(factorial(n - 1));
+		if(n == 1 || n == 0)
 			return BigInteger.ONE;
 		else
 			return BigInteger.valueOf(n).multiply(factorial(n - 1));
