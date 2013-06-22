@@ -30,6 +30,7 @@ public class Tools {
 	}
 	
 	private static long[] primeArray(int n){
+		// This function is to get a prime array whose largest element doesn't exceed the input number n.
 		if(n < 0)
 			throw new IllegalArgumentException("Negative number");
 		boolean[] prime = new boolean[n + 1];
@@ -42,7 +43,6 @@ public class Tools {
 					prime[j] = false;
 			}
 		int count = 0;
-		
 		for(int i = 0; i <= n; i++)
 			if(prime[i])
 				count++;
