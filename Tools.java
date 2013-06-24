@@ -213,4 +213,16 @@ public class Tools {
 		Arrays.sort(temp);
 		return new String(temp).equals(pandital);
 	}
+	
+	public static boolean isPentagonal(int n) {
+		//Triangle	 	    Tn=n(n+1)/2	 	    1, 3, 6, 10, 15, ...
+		//Pentagonal	 	Pn=n(3n−1)/2	 	1, 5, 12, 22, 35, ...
+		//Hexagonal	 	Hn=n(2n−1)	 	    1, 6, 15, 28, 45, ...
+		//This function is to check if a number is pentagonal. It's same with triangle and hexagonal number.
+		
+		//double inverse = Math.sqrt(24 * n + 1) + 1;
+		//return inverse % 6 == 0;
+		double inverse = (Math.sqrt(24 * n + 1) + 1) / 6; // faster than the above;
+		return inverse == (int) inverse;
+	}
 }
