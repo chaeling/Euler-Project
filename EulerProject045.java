@@ -19,7 +19,8 @@ public class TriangularPentagonalHexagonal {
 		return inverse == (int)inverse;
 	}
 	public static void main(String[] args) {
-// Since the set of hexagonal numbers is a subset of triangle numbers, we just need to check if a hexagonal number is pentagonal.
+		// Since the set of hexagonal numbers is a subset of triangle numbers, we just need 
+		//to check if a hexagonal number is pentagonal.
 		long start = System.nanoTime();
 		int i = 143;
 		long hexagonal = 0;	
