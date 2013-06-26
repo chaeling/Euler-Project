@@ -8,7 +8,7 @@ import java.math.BigInteger;
 public class ConvergentsOfE {
   public static BigInteger numerator(int n) {
 		if(n <= 0)
-			throw new IllegalArgumentException(" Not a postive input");
+			throw new IllegalArgumentException("Not a positive input");
 		if(n == 1)
 			return BigInteger.valueOf(2);
 		BigInteger numerator = (n - 1) % 3 == 2 ? BigInteger.valueOf(2 * n / 3) : BigInteger.ONE;
