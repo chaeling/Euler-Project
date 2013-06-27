@@ -15,7 +15,41 @@ package number;
 import java.util.*;
 
 public class TotientPermutation {
-  	private static int totient(int n) {
+	public static int[] totient(int n) {
+		int[] list = new int[n + 1];
+		for(int i = 0; i <= n; i++)
+			list[i] = i;
+		for(int i = 2; i <= n; i++) {
+			if(list[i] == i) { // if i is a prime
+				for(int j = i; j <= n; j += i)
+					list[j] = list[j] / i * (i - 1);
+			}
+		}
+		return list;
+	}
+	public static boolean hasSameDigits(int m, int n) {
+		char[] array1 = Integer.toString(m).toCharArray();
+		char[] array2 = Integer.toString(n).toCharArray();
+		Arrays.sort(array1);
+		Arrays.sort(array2);
+		return Arrays.equals(array1, array2);
+	}
+	public static void main(String[] args) {
+		long start = System.nanoTime();
+		int[] totient = totient(10000000);
+		float min = 3;
+		int result = 0;
+		for(int i = 2; i < 10000000; i++) {
+			if(hasSameDigits(i, totient[i]) && min > (float) i / totient[i]) {
+				min = (float) i / totient[i];
+				result = i;
+			}
+		}
+		System.out.println(result);
+		long time = System.nanoTime() - start;
+		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
+	}
+  	/*private static int totient(int n) {
 		int count = 1;
 		for(int i = 2, end = (int) Math.sqrt(n); i <= end; i++) {
 			if(n % i == 0) {
@@ -54,5 +88,5 @@ public class TotientPermutation {
 			
 		long time = System.nanoTime() - start;
 		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
-	}
+	}*/
 }
