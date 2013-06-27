@@ -171,6 +171,27 @@ public class Tools {
 		return count;
 	}
 	
+	public static int[] totient(int n) {
+		int[] list = new int[n + 1];
+		for(int i = 0; i <= n; i++)
+			list[i] = i;
+		for(int i = 2; i <= n; i++) {
+			if(list[i] == i) { // if i is a prime
+				for(int j = i; j <= n; j += i)
+					list[j] = list[j] / i * (i - 1);
+			}
+		}
+		return list;
+	}
+	
+	public static boolean hasSameDigits(int m, int n) {
+		char[] array1 = Integer.toString(m).toCharArray();
+		char[] array2 = Integer.toString(n).toCharArray();
+		Arrays.sort(array1);
+		Arrays.sort(array2);
+		return Arrays.equals(array1, array2);
+	}
+	
 	public static int[] divisorsNum(int n){ // save the divisors number of each number less or equal to n in a array.
 		int[] array = new int[n + 1];
 		Arrays.fill(array, 2);
