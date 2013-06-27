@@ -15,7 +15,7 @@ package number;
 import java.util.*;
 
 public class TotientPermutation {
-  private static int totient(int n) {
+  	private static int totient(int n) {
 		int count = 1;
 		for(int i = 2, end = (int) Math.sqrt(n); i <= end; i++) {
 			if(n % i == 0) {
