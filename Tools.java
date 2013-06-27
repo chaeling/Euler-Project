@@ -1,7 +1,7 @@
 package number;
 
-import java.util.ArrayList;
-import java.math.BigInteger;
+import java.util.*;
+import java.math.*;
 
 public class Tools {
 	public static boolean isPrime(int n) {
