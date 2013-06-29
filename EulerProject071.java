@@ -31,6 +31,18 @@ public class OrderedFractions {
 		}
 		numerator = denominator * 3 / 7;
 		System.out.println(numerator + "/" + denominator);
+		
+		/*long numerator = 0, denominator = 1;
+		for(int i = 1000000; i > 2; i--) {
+			long p = 3 * i / 7;
+			if(p * denominator > numerator * i) {
+				denominator = i;
+				numerator = p;
+			}
+		}
+		numerator--;
+		System.out.println("numerator = " + numerator);*/
+		
 		long time = System.nanoTime() - start;
 		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
 	}
