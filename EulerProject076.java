@@ -3,8 +3,8 @@
  * Problem 76
  * It is possible to write five as a sum in exactly six different ways:
 
- *           4 + 1
- *    	 3 + 2
+ *          		 4 + 1
+ *    			 3 + 2
  * 			 3 + 1 + 1
  * 			 2 + 2 + 1
  * 			 2 + 1 + 1 + 1
