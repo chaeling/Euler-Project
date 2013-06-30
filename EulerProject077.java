@@ -3,7 +3,7 @@
  * Problem 77
  * It is possible to write ten as the sum of primes in exactly five different ways:
 
- *   				7 + 3
+ *   					7 + 3
  * 					5 + 5
  * 					5 + 3 + 2
  * 					3 + 3 + 2 + 2
