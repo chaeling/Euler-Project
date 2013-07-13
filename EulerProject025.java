@@ -30,8 +30,8 @@ public class The1000digitsFibonacciNumber {
 		BigInteger cur1 = BigInteger.ONE;
 		BigInteger cur2 = BigInteger.ONE;
 		BigInteger fibo = BigInteger.ZERO;
-		int count = 2;
 		BigInteger standard = BigInteger.valueOf(10).pow(999);
+		int count = 2;
 		while(fibo.compareTo(standard) < 0){
 			fibo = cur1.add(cur2);
 			cur1 = cur2;
