@@ -235,6 +235,14 @@ public class Tools {
 		return new String(temp).equals(pandital);
 	}
 	
+	public static boolean isPandigital(int n) {// test if a number is 1~9 pandigital.
+		if(n < 123456789)
+			return false;
+		char[] temp = Integer.toString(n).toCharArray();
+		Arrays.sort(temp);
+		return new String(temp).equals("123456789");
+	}
+	
 	public static boolean isPentagonal(int n) {
 		//Triangle	 	Tn=n(n+1)/2	 	        1, 3, 6, 10, 15, ...
 		//Pentagonal	 	Pn=n(3n−1)/2	        	1, 5, 12, 22, 35, ...
