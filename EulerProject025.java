@@ -25,19 +25,18 @@ package number;
 import java.math.BigInteger;
 
 public class The1000digitsFibonacciNumber {
-  public static void main(String[] args) {
+	public static void main(String[] args) {
 		long start = System.nanoTime();
 		BigInteger cur1 = BigInteger.ONE;
 		BigInteger cur2 = BigInteger.ONE;
-		BigInteger fibo = null;
+		BigInteger fibo = BigInteger.ZERO;
 		int count = 2;
-		int len = 0;
-		while(len < 1000){
+		BigInteger standard = BigInteger.valueOf(10).pow(999);
+		while(fibo.compareTo(standard) < 0){
 			fibo = cur1.add(cur2);
 			cur1 = cur2;
 			cur2 = fibo;
 			count++;
-			len = fibo.toString().length();
 		}
 		System.out.println(count);
 		long time = System.nanoTime() - start;
