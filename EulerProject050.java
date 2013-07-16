@@ -15,38 +15,59 @@ package number;
 import java.util.*;
 
 public class ConsecutivePrimeSum {
-  public static void main(String[] args) {
-		int n = 1000000;
+	public static int[] primeArray(int n) {
+		if(n < 0) 
+			throw new IllegalArgumentException("negative number");
 		boolean[] prime = new boolean[n + 1];
-		Arrays.fill(prime, true);
 		prime[0] = prime[1] = false;
+		for(int i = 2; i <= n; i++)
+			prime[i] = true;
 		for(int i = 2; i * i <= n; i++)
-			for(int j = i; j * i <= n; j++)
-				prime[i * j] = false;
-		
-		List<Integer> list = new ArrayList<Integer>();
-		for(int i = 0; i < n; i++)
 			if(prime[i])
-				list.add(i);
+				for(int j = i * i; j <= n; j += i)
+					prime[j] = false;
 		
-		int len = 1;
-		int result = 0;
-		for(int i = 0; i < list.size() - 1; i++) {
-			int count = 0; 
-			int sum = 0, tempSum = 0;
-			for(int j = i; j < list.size() - 1; j++) {
-				sum += list.get(j);
-				if(list.contains(sum)) {
-					count = j - i + 1;
-					tempSum = sum;
+		int count = 0; 
+		for(int i = 0; i <= n; i++)
+			if(prime[i])
+				count++;
+		
+		int[] array = new int[count];
+		int j = 0;
+		for(int i = 0; i <= n; i++)
+			if(prime[i]) {
+				array[j] = i;
+				j++;
+			}
+		return array;
+	}
+	
+	public static void main(String[] args) {
+		long start = System.nanoTime();
+		
+		final int N = 1000000;
+		int maxLength = 0, result = 0;
+		int[] prime = primeArray(N);
+		List<Integer> list = new ArrayList<Integer>();
+		list.add(prime[0]);
+		for(int i = 1; list.get(i - 1) + prime[i] < N; i++) {
+			list.add(list.get(i - 1) + prime[i]);
+		}
+			
+		for(int i = 0; i < list.size(); i++)
+			for(int j = i + 1; j < list.size(); j++) {
+				int diff = list.get(j) - list.get(i);
+				if(Arrays.binarySearch(prime, diff) > 0){
+					if(j - i > maxLength) {
+						maxLength = j - i;
+						result = (int) diff;
+					}
 				}
 			}
-			if(len < count) {
-				len = count;
-				result = tempSum;
-			}
-		}
-		System.out.println(len);
-		System.out.println(result);
+		System.out.println("maxLength = " + maxLength);
+		System.out.println("result = " + result);
+		
+		long time = System.nanoTime() - start;
+		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
 	}
 }
