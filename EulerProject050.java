@@ -16,8 +16,8 @@ import java.util.*;
 
 public class ConsecutivePrimeSum {
 	public static int[] primeArray(int n) {
-		if(n < 0) 
-			throw new IllegalArgumentException("negative number");
+		if(n <= 0) 
+			throw new IllegalArgumentException("Please input a positive number");
 		boolean[] prime = new boolean[n + 1];
 		prime[0] = prime[1] = false;
 		for(int i = 2; i <= n; i++)
