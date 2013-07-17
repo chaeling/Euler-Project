@@ -265,4 +265,13 @@ public class Tools {
 		double inverse = (Math.sqrt(24 * n + 1) + 1) / 6; // faster than the above;
 		return inverse == (int) inverse;
 	}
+	
+	public static int sternBrocotCount(int leftN, int leftD, int rightN, int rightD, int limit) {
+		int n = leftN + rightN;
+		int d = leftD + rightD;
+		if(d > limit)
+			return 0;
+		else
+			return 1 + sternBrocotCount(leftN, leftD, n, d, limit) + sternBrocotCount(n, d, rightN, rightD, limit);
+	}
 }
