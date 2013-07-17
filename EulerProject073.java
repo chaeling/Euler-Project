@@ -15,22 +15,33 @@
 package number;
 
 public class CountingFractionsInARange {
-  public static int gcd(int m, int n) {
+	public static int sternBrocotCount(int leftN, int leftD, int rightN, int rightD, int limit) {
+		int n = leftN + rightN;
+		int d = leftD + rightD;
+		if(d > limit)
+			return 0;
+		else
+			return 1 + sternBrocotCount(leftN, leftD, n, d, limit) + sternBrocotCount(n, d, rightN, rightD, limit);
+	}
+		
+	/*public static int gcd(int m, int n) {
 		if(n == 0)
 			return m;
 		else
 			return gcd(n, m % n);
-	}
+	}*/
 	public static void main(String[] args) {
 		long start = System.nanoTime();
 		
-		int count = 0;
-		for(int i = 1; i <= 12000; i++) {
-			for(int j = i / 3 + 1; 2 * j < i; j++) 
-				if(gcd(i, j) == 1) 
-					count++;
-		}
-		System.out.println(count);
+//		int count = 0;
+//		for(int i = 1; i <= 12000; i++) {
+//			for(int j = i / 3 + 1; 2 * j < i; j++) 
+//				if(gcd(i, j) == 1) 
+//					count++;
+//		}
+//		System.out.println(count);
+		
+		System.out.println(sternBrocotCount(1, 3, 1, 2, 12000));
 		
 		long time = System.nanoTime() - start;
 		System.out.println("Runtime is " + time/1000/1000.0 + " ms.");
