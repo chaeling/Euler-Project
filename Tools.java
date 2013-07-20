@@ -297,7 +297,7 @@ public class Tools {
 
 		for(; cursor <= number.length() - 2; cursor += 2) {
 			nextProduct = new BigInteger(tempDiff + number.substring(cursor, cursor + 2));
-			// get the largest x ---- x * (x + 20 * result) <= product;
+			// get the largest x ---- x * (x + 20 * result) <= nextProduct;
 			long i = 0; 
 			while(BigInteger.valueOf(i * i).add(new BigInteger(result).multiply(BigInteger.valueOf(20 * i))).compareTo(nextProduct) <= 0)
 				i++;
