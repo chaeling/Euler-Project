@@ -278,11 +278,11 @@ public class Tools {
 	public static String sqrt(int n, int digits) {
 		String number = "";
 		String result = "";
-		int product;
 		BigInteger tempDiff;
 		BigInteger nextProduct;
 		int len = Integer.toString(n).length();
 		int cursor;
+		int product;
 		if(len % 2 == 1) {
 			number = BigInteger.valueOf(n).multiply(BigInteger.valueOf(10).pow(2 * digits - len - 1)).toString();
 			cursor = 1;
