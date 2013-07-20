@@ -278,7 +278,7 @@ public class Tools {
 	public static String sqrt(int n, int digits) {
 		String number = "";
 		String result = "";
-		long product;
+		int product;
 		BigInteger tempDiff;
 		BigInteger nextProduct;
 		int len = Integer.toString(n).length();
