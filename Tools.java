@@ -274,4 +274,40 @@ public class Tools {
 		else
 			return 1 + sternBrocotCount(leftN, leftD, n, d, limit) + sternBrocotCount(n, d, rightN, rightD, limit);
 	}
+	
+	public static String sqrt(int n, int digits) {
+		String number = "";
+		String result = "";
+		long product;
+		BigInteger tempDiff;
+		BigInteger nextProduct;
+		int len = Integer.toString(n).length();
+		int cursor;
+		if(len % 2 == 1) {
+			number = BigInteger.valueOf(n).multiply(BigInteger.valueOf(10).pow(2 * digits - len - 1)).toString();
+			cursor = 1;
+		} else {
+			number = BigInteger.valueOf(n).multiply(BigInteger.valueOf(10).pow(2 * digits - len)).toString();
+			cursor = 2;
+		}
+		product = Integer.parseInt(number.substring(0, cursor));
+		int divResult = (int) Math.sqrt(product);
+		result += divResult;
+		tempDiff = BigInteger.valueOf(product - divResult * divResult);
+
+		for(; cursor <= number.length() - 2; cursor += 2) {
+			nextProduct = new BigInteger(tempDiff + number.substring(cursor, cursor + 2));
+			// get the largest x ---- x * (x + 20 * result) <= product;
+			long i = 0; 
+			while(BigInteger.valueOf(i * i).add(new BigInteger(result).multiply(BigInteger.valueOf(20 * i))).compareTo(nextProduct) <= 0)
+				i++;
+			i--;
+			
+			tempDiff = nextProduct.subtract(BigInteger.valueOf(i * i).add(new BigInteger(result).multiply(BigInteger.valueOf(20 * i))));
+			result += i;	
+		}
+		
+		result = result.substring(0, len / 2 + len % 2) + "." + result.substring(len / 2 + len % 2, result.length());
+		return result;
+	}
 }
