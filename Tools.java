@@ -276,6 +276,8 @@ public class Tools {
 	}
 	
 	public static String sqrt(int n, int digits) {
+		//reference --- http://en.wikipedia.org/wiki/Methods_of_computing_square_roots
+		//结果未进行四舍五入
 		String number = "";
 		String result = "";
 		BigInteger tempDiff;
@@ -283,8 +285,8 @@ public class Tools {
 		int len = Integer.toString(n).length();
 		int cursor;
 		int product;
-		if(n < len / 2 + len % 2)
-			throw new IllegalArgumentException("digits is too small.");
+		if(digits < len / 2 + len % 2)
+			throw new IllegalArgumentException("digits couldn't be less than " + (len / 2 + len % 2));
 		if(len % 2 == 1) {
 			number = BigInteger.valueOf(n).multiply(BigInteger.valueOf(10).pow(2 * digits - len - 1)).toString();
 			cursor = 1;
@@ -308,8 +310,10 @@ public class Tools {
 			tempDiff = nextProduct.subtract(BigInteger.valueOf(i * i).add(new BigInteger(result).multiply(BigInteger.valueOf(20 * i))));
 			result += i;	
 		}
-		
-		result = result.substring(0, len / 2 + len % 2) + "." + result.substring(len / 2 + len % 2, result.length());
+		if(digits == (len / 2 + len % 2))
+			result = result.substring(0, len / 2 + len % 2);
+		else
+			result = result.substring(0, len / 2 + len % 2) + "." + result.substring(len / 2 + len % 2, result.length());
 		return result;
 	}
 }
