@@ -283,6 +283,8 @@ public class Tools {
 		int len = Integer.toString(n).length();
 		int cursor;
 		int product;
+		if(n < len / 2 + len % 2)
+			throw new IllegalArgumentException("digits is too small.");
 		if(len % 2 == 1) {
 			number = BigInteger.valueOf(n).multiply(BigInteger.valueOf(10).pow(2 * digits - len - 1)).toString();
 			cursor = 1;
