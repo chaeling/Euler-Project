@@ -318,7 +318,7 @@ public class Tools {
 	}
 	
 		public static int maxSubstringSum(int[] array) {
-		//This method makes sense only if there is negative numbers in the array. So we can check that case before use it.
+		//This method makes sense only if there are negative numbers in the array. So we can check that case before use it.
 		int maxSum = 0, tempSum = 0;
 		for(int i = 0; i < array.length; i++) {
 			tempSum += array[i];
