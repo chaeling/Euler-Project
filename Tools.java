@@ -82,6 +82,10 @@ public class Tools {
 		return s.equals(new StringBuilder(s).reverse().toString());
 	}
 	
+	public static boolean isPalindrome(int n) {
+		return new StringBuilder(n + "").reverse().toString().equals(Integer.toString(n));
+	}
+	
 	private static boolean isPalindrome(BigInteger n){
 		return n.toString().equals(new StringBuilder(n.toString()).reverse().toString());
 	}
