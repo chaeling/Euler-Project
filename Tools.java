@@ -316,4 +316,18 @@ public class Tools {
 			result = result.substring(0, len / 2 + len % 2) + "." + result.substring(len / 2 + len % 2, result.length());
 		return result;
 	}
+	
+		public static int maxSubstringSum(int[] array) {
+		//This method makes sense only if there is negative numbers in the array. So we can check that case before use it.
+		int maxSum = 0, tempSum = 0;
+		for(int i = 0; i < array.length; i++) {
+			tempSum += array[i];
+			if(tempSum > maxSum)
+				maxSum = tempSum;
+			else
+				if(tempSum < 0)
+					tempSum = 0;
+		}
+		return maxSum;
+	}
 }
