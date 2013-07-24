@@ -330,4 +330,22 @@ public class Tools {
 		}
 		return maxSum;
 	}
+	
+	public static void maxSubstringSum(int[] array) {
+		int maxSum = 0, tempSum = 0;
+		int leftEnd = 0, rightEnd = 0, tempLeftEnd = 0;
+		for(int i = 0; i < array.length; i++){
+			if(tempSum == 0)
+				tempLeftEnd = i;
+			tempSum += array[i];
+			if(tempSum > maxSum) {
+				maxSum = tempSum;
+				leftEnd = tempLeftEnd;
+				rightEnd = i;
+			}
+			else if(tempSum < 0)
+				tempSum = 0;
+		}
+		System.out.println(maxSum + " " + leftEnd + " " + rightEnd);
+	}
 }
