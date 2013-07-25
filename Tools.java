@@ -365,4 +365,30 @@ public class Tools {
 			return array;
 		}
 	}
+	
+	public static TreeSet<Long> pascaltriangle(int n) {// get all coefficients of Pascal Triangle
+		TreeSet<Long> set = new TreeSet<Long>();
+		long [] arr1 = {1}, arr2 = {1, 1};
+		set.add(1L);
+		for(int i = 3; i <= n; i++) {
+			if(i % 2 == 0) {
+				arr2 = new long[i / 2];
+				arr2[0] = 1;
+				for(int j = 1; j < i / 2; j++) {
+					arr2[j] = arr1[j - 1] + arr1[j];
+					set.add(arr2[j]);
+				}
+			} else {
+				arr1 = new long[i / 2 + 1];
+				arr1[0] = 1;
+				arr1[i / 2] = 2 * arr2[i / 2 - 1];
+				set.add(arr1[i / 2]);
+				for(int j = 1; j < i / 2; j++) {
+					arr1[j] = arr2[j - 1] + arr2[j];
+					set.add(arr1[j]);
+				}
+			}
+		}
+		return set;
+	}
 }
