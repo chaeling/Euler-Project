@@ -352,4 +352,17 @@ public class Tools {
 		}
 		System.out.println(maxSum + " " + leftEnd + " " + rightEnd);
 	}
+	
+	public static int[] pascaltriangle(int n) {
+		if(n == 1)
+			return new int[] {1};
+		else {
+			int[] array = new int[n];
+			int[] tempArray = pascaltriangle(n - 1);
+			array[0] = array[n - 1] = 1;
+			for(int i = 1; i <= n - 2; i++)
+				array[i] = tempArray[i - 1] + tempArray[i];
+			return array;
+		}
+	}
 }
