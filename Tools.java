@@ -30,6 +30,26 @@ public class Tools {
 		return prime;
 	}
 	
+	public static int[] primeList(int n) {
+		TreeSet<Integer> set = new TreeSet<Integer>();
+		boolean[] list = new boolean[n + 1];
+		for(int i = 0; i <= n; i++) 
+			list[i] = true;
+		for(int i = 2; i <= n; i++) {
+			if(list[i]) {
+				set.add(i);
+				for(int j = i * i; j <= n; j += i) {
+					list[j] = false;
+				}
+			}
+		}
+		int[] primes = new int[set.size()];
+		int i = 0;
+		for(int value : set)
+			primes[i++] = value;
+		return primes;
+	}
+	
 	private static long[] primeArray(int n){
 		// This function is to get a prime array whose largest element doesn't exceed the input number n.
 		if(n <= 0)
