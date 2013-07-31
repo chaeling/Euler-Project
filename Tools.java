@@ -111,6 +111,8 @@ public class Tools {
 	}
 	
 	public static boolean isPalindrome(int n){
+		if(n < 0)
+			return false;
 		int temp = n, digit, rev = 0;
 		while(temp != 0){
 			digit = temp % 10;
