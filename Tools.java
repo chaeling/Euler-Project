@@ -301,6 +301,36 @@ public class Tools {
 			return 1 + sternBrocotCount(leftN, leftD, n, d, limit) + sternBrocotCount(n, d, rightN, rightD, limit);
 	}
 	
+	public static int sqrt(int x) {
+		if(x < 100) {
+    		int i = 0; 
+			while(i * i <= x)
+				i++;
+			return i - 1;
+		}
+		String number = x + "";
+		int result = 0;
+		int tempDiff;
+		int nextProduct;
+        	int len = Integer.toString(x).length();
+        	int cursor = len % 2 == 1 ? 1 : 2;
+        	nextProduct = Integer.parseInt(number.substring(0, cursor));
+        	int divResult = sqrt(nextProduct);
+        	result += divResult;
+        	tempDiff = nextProduct - divResult * divResult;
+        
+        	for(; cursor <= number.length() - 2; cursor += 2) {
+        		nextProduct = 100 * tempDiff + Integer.parseInt(number.substring(cursor, cursor + 2));
+        		int i = 0; 
+        		while(i * i + result * 20 * i <= nextProduct)
+        			i++;
+        		i--; 	
+        		tempDiff = nextProduct - (i * i + result * 20 * i);
+        		result = result * 10 + i;
+        	}
+        	return result;
+    	}
+	
 	public static String sqrt(int n, int digits) {
 		//reference --- http://en.wikipedia.org/wiki/Methods_of_computing_square_roots
 		//结果未进行四舍五入
